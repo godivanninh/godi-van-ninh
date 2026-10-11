@@ -73,6 +73,12 @@
     .restaurant p{color:var(--muted);font-size:.92rem;margin:0 0 14px}
     .notice{margin-top:18px;padding:13px 16px;border-radius:12px;background:#fff8df;color:#75500a;font-size:.88rem}
     .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+    .app-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .app-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 8px 28px #102c5108}
+    .app-card h3{margin:0 0 6px;font-size:1.15rem}
+    .app-card p{color:var(--muted);margin:0 0 16px;font-size:.94rem}
+    .app-links{display:flex;gap:9px;flex-wrap:wrap}
+    .app-links .btn{flex:1;min-width:135px;padding:11px 12px;font-size:.92rem}
     .contact-card{padding:26px;border:1px solid var(--line);border-radius:22px;background:#fff}
     .contact-card h3{margin-top:0}
     .contact-row{display:flex;gap:13px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
@@ -102,12 +108,38 @@
       .hero{padding:35px 0 38px}.hero-grid{grid-template-columns:1fr}.hero-art{min-height:330px;padding:20px}
       .art-title{font-size:1.8rem}.hero-actions .btn{flex:1}
       section{padding:48px 0}.services{gap:11px}.service{padding:17px 14px}.service .emoji{width:49px;height:49px;font-size:1.7rem}
-      .steps,.restaurants,.contact-grid{grid-template-columns:1fr}.food-art{height:135px}
+      .steps,.restaurants,.contact-grid,.app-grid{grid-template-columns:1fr}.food-art{height:135px}
       .cta{padding:25px;align-items:flex-start;flex-direction:column}
       .mobile-cta{position:fixed;z-index:20;bottom:0;left:0;right:0;display:flex;gap:8px;padding:9px 12px calc(9px + env(safe-area-inset-bottom));background:#ffffffed;border-top:1px solid var(--line);backdrop-filter:blur(10px)}
       .mobile-cta .btn{flex:1;padding:11px 8px;font-size:.9rem}
       footer{padding-bottom:90px}
     }
+    /* Giao diện gần với mẫu quảng bá Godi Vạn Ninh: đỏ nổi bật, thẻ màu và nút truy cập nhanh */
+    .topbar{background:#d71927}
+    header{border-bottom:3px solid #ed2634}
+    .brandmark{background:linear-gradient(145deg,#ef2635,#bd101d);border-radius:50%}
+    .hero{background:linear-gradient(120deg,#d71927,#f12a35 56%,#ff5a45);color:#fff;padding:38px 0 34px}
+    .hero .eyebrow{background:#fff;color:#c71624}
+    .hero h1 span{color:#fff4a8}
+    .hero .lead,.hero .trust{color:#fff}
+    .hero .btn{background:#ffd928;color:#202020;box-shadow:none}
+    .hero .btn.light{background:#fff;color:#bd101d}
+    .hero-art{background:linear-gradient(145deg,#b80e1b,#f03a35);border:1px solid #ffffff55;box-shadow:0 15px 36px #7b101c33}
+    .quick-access{padding:18px 0;background:#fff7f3}
+    .quick-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+    .quick-button{display:grid;grid-template-columns:48px 1fr;grid-template-rows:auto auto;align-items:center;column-gap:10px;padding:14px;border-radius:16px;color:#fff;box-shadow:0 7px 18px #172a4017}
+    .quick-button span{grid-row:1/3;width:46px;height:46px;border-radius:13px;background:#ffffff2b;display:grid;place-items:center;font-size:1.45rem;font-weight:900}
+    .quick-button strong{font-size:1rem;line-height:1.25}
+    .quick-button small{font-size:.78rem;opacity:.93}
+    .quick-red{background:#e51f2d}.quick-green{background:#079b58}.quick-blue{background:#1768cf}.quick-yellow{background:#efb800;color:#352700}
+    .services .service:nth-child(1){background:#e9f4ff;border-color:#c9e3ff}
+    .services .service:nth-child(2){background:#fff4df;border-color:#ffe1a3}
+    .services .service:nth-child(3){background:#e8fff0;border-color:#bcebc9}
+    .services .service:nth-child(4){background:#f5eaff;border-color:#e2c7ff}
+    .app-card{border-top:4px solid var(--red)}
+    .app-card:nth-child(2){border-top-color:#0c79ed}.app-card:nth-child(3){border-top-color:#11985b}.app-card:nth-child(4){border-top-color:#f0b900}
+    .cta{background:linear-gradient(120deg,#d71927,#f33c39)}
+    @media(max-width:650px){.quick-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.quick-button{padding:11px;grid-template-columns:40px 1fr;column-gap:8px}.quick-button span{width:38px;height:38px;font-size:1.2rem}.quick-button strong{font-size:.92rem}.quick-button small{font-size:.72rem}.hero{padding:30px 0}.hero-art{min-height:290px}}
   </style>
 </head>
 <body>
@@ -115,7 +147,7 @@
   <header>
     <div class="wrap nav">
       <a class="brand" href="#home" aria-label="Godi Vạn Ninh - Trang chủ"><span class="brandmark">📍</span><span>Godi<small>VẠN NINH</small></span></a>
-      <nav aria-label="Điều hướng chính"><a href="#home">Trang chủ</a><a href="#services">Dịch vụ</a><a href="#restaurants">Nhà hàng</a><a href="#contact">Liên hệ</a></nav>
+      <nav aria-label="Điều hướng chính"><a href="#home">Trang chủ</a><a href="#services">Dịch vụ</a><a href="#restaurants">Nhà hàng</a><a href="#apps">Tải ứng dụng</a><a href="https://www.tiktok.com/@godi_vanninh" target="_blank" rel="noopener">TikTok</a><a href="#contact">Liên hệ</a></nav>
       <a class="btn red" href="tel:0935853610">☎ Gọi ngay</a>
     </div>
   </header>
@@ -139,6 +171,15 @@
             <div class="route-card"><div class="route-icon">📦</div><div><strong>Ship hàng</strong><small>Gửi hàng, giao nhận linh hoạt</small></div></div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="quick-access" aria-label="Liên kết nhanh">
+      <div class="wrap quick-grid">
+        <a class="quick-button quick-red" href="tel:0935853610"><span>☎</span><strong>Gọi ngay</strong><small>0935 853 610</small></a>
+        <a class="quick-button quick-green" href="https://zalo.me/0935853610" target="_blank" rel="noopener"><span>💬</span><strong>Chat Zalo</strong><small>Nhắn tin trực tiếp</small></a>
+        <a class="quick-button quick-blue" href="https://www.facebook.com/search/top?q=Godi%20V%E1%BA%A1n%20Ninh" target="_blank" rel="noopener"><span>f</span><strong>Facebook</strong><small>Tìm Godi Vạn Ninh</small></a>
+        <a class="quick-button quick-yellow" href="https://www.google.com/maps/search/?api=1&query=V%E1%BA%A1n%20Ninh%2C%20Kh%C3%A1nh%20H%C3%B2a" target="_blank" rel="noopener"><span>📍</span><strong>Xem bản đồ</strong><small>Vạn Ninh, Khánh Hòa</small></a>
       </div>
     </section>
 
@@ -177,6 +218,35 @@
       </div>
     </section>
 
+    <section id="apps">
+      <div class="wrap">
+        <div class="section-head"><h2>Tải ứng dụng Godi</h2><p>Chọn đúng ứng dụng theo vai trò của bạn. Nhấn App Store nếu dùng iPhone hoặc Google Play nếu dùng Android.</p></div>
+        <div class="app-grid">
+          <article class="app-card">
+            <h3>📱 Godi khách hàng</h3>
+            <p>Đặt xe, đặt đồ ăn và giao hàng.</p>
+            <div class="app-links"><a class="btn" href="https://apps.apple.com/vn/app/godi-kh%C3%A1ch-h%C3%A0ng/id6762444502" target="_blank" rel="noopener"> App Store</a><a class="btn light" href="https://play.google.com/store/apps/details?id=com.godi.user" target="_blank" rel="noopener">▶ Google Play</a></div>
+          </article>
+          <article class="app-card">
+            <h3>🍽️ Godi nhà hàng</h3>
+            <p>Dành cho nhà hàng, cửa hàng và đối tác bán hàng.</p>
+            <div class="app-links"><a class="btn" href="https://apps.apple.com/vn/app/godi-nh%C3%A0-h%C3%A0ng/id6771332035" target="_blank" rel="noopener"> App Store</a><a class="btn light" href="https://play.google.com/store/apps/details?id=com.godi.merchant" target="_blank" rel="noopener">▶ Google Play</a></div>
+          </article>
+          <article class="app-card">
+            <h3>🛵 Godi tài xế</h3>
+            <p>Dành cho đối tác tài xế nhận chuyến và giao đơn.</p>
+            <div class="app-links"><a class="btn" href="https://apps.apple.com/vn/app/godi-t%C3%A0i-x%E1%BA%BF/id6762608434" target="_blank" rel="noopener"> App Store</a><a class="btn light" href="https://play.google.com/store/apps/details?id=com.godi.driver" target="_blank" rel="noopener">▶ Google Play</a></div>
+          </article>
+          <article class="app-card">
+            <h3>🤝 Đăng ký đối tác</h3>
+            <p>Đăng ký tham gia Godi với vai trò tài xế hoặc nhà hàng.</p>
+            <div class="app-links"><a class="btn red" href="https://godi.asia/vn/contact" target="_blank" rel="noopener">Đăng ký đối tác ↗</a><a class="btn light" href="https://godi.asia/vn" target="_blank" rel="noopener">Website tổng công ty</a></div>
+          </article>
+        </div>
+        <p class="form-note" style="text-align:center;margin-top:16px">Liên kết App Store cho Godi nhà hàng và Godi tài xế được lấy từ các trang ứng dụng Godi đang niêm yết. Hãy kiểm tra lại trên iPhone trước khi quảng bá rộng rãi.</p>
+      </div>
+    </section>
+
     <section class="soft" id="contact">
       <div class="wrap">
         <div class="section-head"><h2>Liên hệ Godi Vạn Ninh</h2><p>Gọi trực tiếp hoặc gửi thông tin qua Zalo để được hỗ trợ.</p></div>
@@ -211,13 +281,13 @@
   <footer>
     <div class="wrap">
       <div class="footer-grid">
-        <div><a class="brand" href="#home"><span class="brandmark">📍</span><span>Godi<small>VẠN NINH</small></span></a><p>Kết nối dịch vụ, lan tỏa giá trị tại Vạn Ninh, Khánh Hòa.</p></div>
-        <div><strong>Điều hướng</strong><p><a href="#services">Dịch vụ</a> · <a href="#restaurants">Nhà hàng</a> · <a href="#contact">Liên hệ</a></p><strong>Hotline: <a href="tel:0935853610">0935 853 610</a></strong></div>
+        <div><a class="brand" href="#home"><span class="brandmark">📍</span><span>Godi<small>VẠN NINH</small></span></a><p>Kết nối dịch vụ, lan tỏa giá trị tại Vạn Ninh, Khánh Hòa.</p><a class="btn red" href="https://www.tiktok.com/@godi_vanninh" target="_blank" rel="noopener">♪ Theo dõi TikTok @godi_vanninh ↗</a></div>
+        <div><strong>Điều hướng</strong><p><a href="#services">Dịch vụ</a> · <a href="#restaurants">Nhà hàng</a> · <a href="#apps">Tải ứng dụng</a> · <a href="https://www.tiktok.com/@godi_vanninh" target="_blank" rel="noopener">TikTok</a> · <a href="#contact">Liên hệ</a></p><strong>Hotline: <a href="tel:0935853610">0935 853 610</a></strong></div>
       </div>
       <div class="copyright">© <span id="year"></span> Godi Vạn Ninh. Nội dung website cần được cập nhật và xác minh trước khi quảng bá chính thức.</div>
     </div>
   </footer>
-  <div class="mobile-cta"><a class="btn red" href="tel:0935853610">☎ Gọi ngay</a><a class="btn" href="https://zalo.me/0935853610" target="_blank" rel="noopener">💬 Zalo</a></div>
+  <div class="mobile-cta"><a class="btn red" href="tel:0935853610">☎ Gọi ngay</a><a class="btn" href="https://zalo.me/0935853610" target="_blank" rel="noopener">💬 Zalo</a><a class="btn light" href="https://www.tiktok.com/@godi_vanninh" target="_blank" rel="noopener">♪ TikTok</a></div>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
     document.getElementById('requestForm').addEventListener('submit', function(e){
